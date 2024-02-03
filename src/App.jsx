@@ -10,22 +10,31 @@ function App() {
   const [expectedValue, setExpectedValue] = useState(5);
   const [durationValue, setDurationValue] = useState(10);
 
-  const testVal = [initialValue, annualValue, expectedValue, durationValue];
+  // const testVal = [initialValue, annualValue, expectedValue, durationValue];
   const investmentResults = calculateInvestmentResults({
     initialInvestment: initialValue,
     annualInvestment: annualValue,
     expectedReturn: expectedValue,
     duration: durationValue,
   });
-  // console.log(investmentResults);
+
   return (
     <main>
       <h1>React Investment Calculator</h1>
       <div id="user-input">
-        <UserInput inputLabel="initial investment" />
-        <UserInput inputLabel="annual investment" />
-        <UserInput inputLabel="expected return" />
-        <UserInput inputLabel="duration" />
+        <UserInput
+          inputLabel="initial investment"
+          onChangeInput={setInitialValue}
+        />
+        <UserInput
+          inputLabel="annual investment"
+          onChangeInput={setAnnualValue}
+        />
+        <UserInput
+          inputLabel="expected return"
+          onChangeInput={setExpectedValue}
+        />
+        <UserInput inputLabel="duration" onChangeInput={setDurationValue} />
       </div>
       <ResultTable resultValue={investmentResults} />
     </main>
