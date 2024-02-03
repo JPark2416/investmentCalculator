@@ -5,10 +5,10 @@ import ResultTable from "./components/ResultTable";
 import { calculateInvestmentResults } from "./util/investment";
 
 function App() {
-  const [initialValue, setInitialValue] = useState(15000);
-  const [annualValue, setAnnualValue] = useState(900);
+  const [initialValue, setInitialValue] = useState(1500);
+  const [annualValue, setAnnualValue] = useState(1);
   const [expectedValue, setExpectedValue] = useState(5);
-  const [durationValue, setDurationValue] = useState(10);
+  const [durationValue, setDurationValue] = useState(9);
 
   // const testVal = [initialValue, annualValue, expectedValue, durationValue];
   const investmentResults = calculateInvestmentResults({

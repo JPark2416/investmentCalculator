@@ -1,3 +1,5 @@
+import { formatter } from "../util/investment";
+
 function ResultTable({ resultValue }) {
   // resultValue Structure
   // {
@@ -6,7 +8,7 @@ function ResultTable({ resultValue }) {
   //   valueEndOfYear: investmentValue, // investment value at end of year
   //   annualInvestment: annualInvestment, // investment added in this year
   // }
-
+  console.log(formatter.format(resultValue[0].valueEndOfYear));
   return (
     <table id="result">
       <thead>
@@ -14,7 +16,7 @@ function ResultTable({ resultValue }) {
           <th>Year</th>
           <th>Investment Value</th>
           <th>Interest (Year)</th>
-          <th>Total Interest</th>
+          {/* <th>Total Interest</th> */}
         </tr>
       </thead>
       <tbody>
@@ -22,16 +24,16 @@ function ResultTable({ resultValue }) {
           return (
             <tr key={resultindex}>
               <td>{result.year}</td>
-              <td>{result.valueEndOfYear}</td>
-              <td>{result.interest}</td>
-              <td>
+              <td>{formatter.format(result.valueEndOfYear)}</td>
+              <td>{formatter.format(result.interest)}</td>
+              {/* <td>
                 {resultValue
                   .slice(0, resultindex + 1)
                   .map((res) => res.annualInvestment)
                   .reduce((acc, current) => {
                     return acc + current;
                   })}
-              </td>
+              </td> */}
             </tr>
           );
         })}
