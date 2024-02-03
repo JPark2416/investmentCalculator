@@ -1,10 +1,8 @@
-function UserInput() {
+function UserInput({ inputLabel }) {
   return (
-    <div id="user-input">
-      <input type="number" />
-      <input type="number" />
-      <input type="number" />
-      <input type="number" />
+    <div>
+      <label>{inputLabel}</label>
+      <input type="number"></input>
     </div>
   );
 }
